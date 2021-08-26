@@ -1,0 +1,30 @@
+
+
+<div #userDataContainer="appResolve" appResolve [dbSharedResolve]="bundles">
+  <div *ngIf="userDataContainer.isResolving">Loading...</div>
+  <!--<div *ngIf="(user$ | async) as user && userDataContainer.isResolving">-->
+  <div *ngIf="user && !userDataContainer.isResolving">
+    <h3>User Details:</h3>
+    <p>{{ user.name }}</p>
+    <p>{{ user.username }}</p>
+    <p>{{ user.email }}</p>
+    <div *ngFor="let a of user.address | keyvalue">
+      <!--<b>{{ c.key | titlecase }}</b>-->{{ a.value }}
+    </div>
+    <!--<h4>Geo: </h4>
+    <div *ngFor="let g of user.address.geo | keyvalue">
+      <b>{{ g.key | titlecase }}</b>-{{ g.value }}
+    </div>-->
+    <p>{{ user.phone }}</p>
+    <p>{{ user.website }}</p>
+    <div *ngFor="let c of user.company | keyvalue">
+      <!--<b>{{ c.key | titlecase }}</b>-->{{ c.value }}
+    </div>
+  </div>
+</div>
+<button (click)="removeUserDetail()" appResolve [dbSharedResolve]="bundles">Remove User Detail</button>
+
+<!--<ng-template #loaderContainer="appResolve" appResolve>
+  <p *ngIf="loaderContainer.isResolving">Loading...</p>
+</ng-template>-->
+

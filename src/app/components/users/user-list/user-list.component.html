@@ -1,0 +1,12 @@
+<div #usersDataContainer="appResolve" appResolve [dbSharedResolve]="bundles">
+  <div *ngIf="usersDataContainer.isResolving">Loading...</div>
+  <div *ngIf="!usersDataContainer.isResolving">
+    <ul *ngIf="users">
+      <li *ngFor="let user of users">
+        <span>{{ user.name }}</span>-><span>{{ user.username }}</span>
+      </li>
+   </ul>
+  </div>
+</div>
+<button (click)="removeUsersList()" appResolve [dbSharedResolve]="bundles">Remove Users</button>
+
