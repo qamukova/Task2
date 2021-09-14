@@ -1,6 +1,4 @@
-
-
-<div #userDataContainer="appResolve" appResolve [dbSharedResolve]="bundles">
+<div #userDataContainer="appResolve" appResolve [dbSharedResolve]="bundles" [skipResolve]="!user">
   <div *ngIf="userDataContainer.isResolving">Loading...</div>
   <!--<div *ngIf="(user$ | async) as user && userDataContainer.isResolving">-->
   <div *ngIf="user && !userDataContainer.isResolving">
